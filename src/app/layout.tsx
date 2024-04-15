@@ -1,4 +1,5 @@
 import { Providers } from '@/components/providers';
+import { cn } from '@/lib/utils';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -20,7 +21,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning lang='es'>
-      <body className={inter.className}>
+      <body className={cn(inter.className, 'antialiased')}>
         <Providers>{children}</Providers>
       </body>
     </html>
