@@ -13,7 +13,6 @@
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
   "editor.linkedEditing": true,
