@@ -22,7 +22,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html suppressHydrationWarning lang='es'>
       <body className={cn(inter.className, 'antialiased')}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <div className='flex min-h-screen flex-col'>
+            <main className='flex flex-1 flex-col'>{children}</main>
+          </div>
+        </Providers>
       </body>
     </html>
   );
