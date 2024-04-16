@@ -1,3 +1,4 @@
+import { Header } from '@/components/header';
 import { Providers } from '@/components/providers';
 import { cn } from '@/lib/utils';
 import type { Metadata, Viewport } from 'next';
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cn(inter.className, 'antialiased')}>
         <Providers>
           <div className='flex min-h-screen flex-col'>
+            <Header />
             <main className='flex flex-1 flex-col'>{children}</main>
           </div>
         </Providers>
