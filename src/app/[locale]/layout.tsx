@@ -1,6 +1,7 @@
 import { Header } from '@/components/header';
 import { Providers } from '@/components/providers';
 import { cn } from '@/lib/utils';
+import { type Locale } from '@/types/locale';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -19,9 +20,15 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode;
+  params: { locale: Locale };
+}) {
   return (
-    <html suppressHydrationWarning lang='es'>
+    <html suppressHydrationWarning lang={locale}>
       <body className={cn(inter.className, 'antialiased')}>
         <Providers>
           <div className='flex min-h-screen flex-col'>
