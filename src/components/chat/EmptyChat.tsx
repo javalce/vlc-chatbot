@@ -1,9 +1,12 @@
+import { useTranslations } from 'next-intl';
 import { ChatMessage } from './ChatMessage';
 
 export function EmptyChat() {
+  const t = useTranslations('chat');
+
   return (
     <ChatMessage type='chatbot'>
-      <p>Bienvenido al asistente de la ciudad de Valencia. ¿En qué puedo ayudarte?</p>
+      <p>{t('empty')}</p>
     </ChatMessage>
   );
 }

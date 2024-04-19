@@ -2,5 +2,11 @@
   "locale-switcher": {
     "label": "Change language",
     "locale": "{locale, select, en {English} es {Español} other {Unknown}}"
+  },
+  "chat": {
+    "empty": "Welcome to Valencia City Assistant! How can I help you?",
+    "input": {
+      "placeholder": "Write your message..."
+    }
   }
 }

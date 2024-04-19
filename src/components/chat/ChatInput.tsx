@@ -15,7 +15,7 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-export function ChatInput() {
+export function ChatInput({ placeholder }: { placeholder: string }) {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,7 +41,7 @@ export function ChatInput() {
                     autoComplete='off'
                     autoCorrect='off'
                     className='min-h-[60px] w-full resize-none overflow-hidden bg-background px-4 py-[1.3rem] focus-within:outline-none sm:text-sm'
-                    placeholder='Escribe un mensaje...'
+                    placeholder={placeholder}
                     rows={1}
                     spellCheck={false}
                     tabIndex={0}
