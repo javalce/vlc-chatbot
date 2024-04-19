@@ -1,5 +1,5 @@
 import { MessageDotsIcon } from '@/components/icons/MessageDotsIcon';
-import { LanguageSelector } from '@/components/LanguageSelector';
+import { LanguagerSwitcher } from '@/components/language-switcher/LanguageSwitcher';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
 export function Header() {
@@ -10,7 +10,7 @@ export function Header() {
         <MessageDotsIcon className='size-7' />
       </div>
       <div className='flex flex-1 items-center justify-end gap-x-2'>
-        <LanguageSelector />
+        <LanguagerSwitcher />
         <ThemeToggle />
       </div>
     </header>
