@@ -30,7 +30,7 @@ export function ChatInput({ placeholder }: { placeholder: string }) {
   return (
     <Form {...form}>
       <form onSubmit={() => form.handleSubmit(onSubmit)}>
-        <div className='relative flex max-h-60 w-full grow flex-col justify-center overflow-hidden bg-background pr-8 sm:rounded-md sm:border sm:pr-12'>
+        <div className='relative flex max-h-60 w-full grow flex-col justify-center overflow-hidden bg-background pr-10 sm:rounded-md sm:border sm:pr-12'>
           <FormField
             control={form.control}
             name='message'
@@ -51,7 +51,7 @@ export function ChatInput({ placeholder }: { placeholder: string }) {
               </FormItem>
             )}
           />
-          <div className='absolute bottom-4 right-0 sm:right-4'>
+          <div className='absolute bottom-4 right-2 sm:right-4'>
             <Button disabled={!form.formState.isValid} size='icon' type='submit'>
               <PaperPlaneIcon />
               <span className='sr-only'>Enviar mensaje</span>
