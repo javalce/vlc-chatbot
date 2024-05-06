@@ -7,15 +7,13 @@ import { ChatPanel } from './ChatPanel';
 import { EmptyChat } from './EmptyChat';
 
 export function Chat({
-  chatApiUrl,
   inputPlaceholder,
   emptyChatMessage,
 }: {
-  chatApiUrl: string;
   inputPlaceholder: string;
   emptyChatMessage: string;
 }) {
-  const { apiUrl } = useChatApiUrl({ chatApiUrl });
+  const { apiUrl } = useChatApiUrl();
 
   const { messages, handleSubmit, input, handleInputChange } = useChat({
     api: apiUrl,
