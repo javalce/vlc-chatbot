@@ -1,12 +1,9 @@
-import { useTranslations } from 'next-intl';
 import { ChatMessage } from './ChatMessage';
 
-export function EmptyChat() {
-  const t = useTranslations('chat');
-
+export function EmptyChat({ emptyChatMessage }: { emptyChatMessage: string }) {
   return (
     <ChatMessage type='chatbot'>
-      <p>{t('empty')}</p>
+      <p>{emptyChatMessage}</p>
     </ChatMessage>
   );
 }
