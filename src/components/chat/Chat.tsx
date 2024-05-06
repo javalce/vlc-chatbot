@@ -1,21 +1,24 @@
 'use client';
 
+import { useChatApiUrl } from '@/hooks/use-chat-api-url';
 import { useChat } from 'ai/react';
 import { ChatList } from './ChatList';
 import { ChatPanel } from './ChatPanel';
 import { EmptyChat } from './EmptyChat';
 
 export function Chat({
-  api,
+  chatApiUrl,
   inputPlaceholder,
   emptyChatMessage,
 }: {
-  api: string;
+  chatApiUrl: string;
   inputPlaceholder: string;
   emptyChatMessage: string;
 }) {
+  const { apiUrl } = useChatApiUrl({ chatApiUrl });
+
   const { messages, handleSubmit, input, handleInputChange } = useChat({
-    api,
+    api: apiUrl,
     streamMode: 'text',
   });
 

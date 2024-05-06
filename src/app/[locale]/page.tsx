@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className='relative flex h-[calc(100vh_-_theme(spacing.16))] overflow-hidden'>
       <Chat
-        api={CHAT_API_URL}
+        chatApiUrl={CHAT_API_URL}
         emptyChatMessage={t('empty')}
         inputPlaceholder={t('input.placeholder')}
       />
