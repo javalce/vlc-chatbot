@@ -1,8 +1,9 @@
 import { MessageChatbotIcon } from '@/components/icons/MessageChatbotIcon';
+import { Separator } from '@/components/ui/separator';
 import { PersonIcon } from '@radix-ui/react-icons';
 import { type Message } from 'ai/react';
 
-export function ChatMessage({ message }: { message: Message }) {
+export function ChatMessage({ message, separator }: { message: Message; separator: boolean }) {
   const { role, content } = message;
 
   return (
@@ -10,7 +11,10 @@ export function ChatMessage({ message }: { message: Message }) {
       <div className='flex size-[25px] shrink-0 select-none items-center justify-center rounded-md border bg-background shadow-sm'>
         {role === 'user' ? <PersonIcon /> : <MessageChatbotIcon />}
       </div>
-      <div className='ml-4 flex-1 space-y-2 overflow-hidden text-pretty pl-2'>{content}</div>
+      <div className='ml-4 flex-1 space-y-2 overflow-hidden text-pretty pl-2'>
+        {content}
+        {separator ? <Separator className='my-4' /> : null}
+      </div>
     </div>
   );
 }

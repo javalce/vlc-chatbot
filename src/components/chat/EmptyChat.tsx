@@ -1,4 +1,3 @@
-import { Separator } from '@/components/ui/separator';
 import { generateId } from 'ai';
 import { ChatMessage } from './ChatMessage';
 
@@ -10,15 +9,13 @@ export function EmptyChat({
   separator: boolean;
 }) {
   return (
-    <>
-      <ChatMessage
-        message={{
-          id: generateId(),
-          content: emptyChatMessage,
-          role: 'assistant',
-        }}
-      />
-      {separator ? <Separator className='my-4' /> : null}
-    </>
+    <ChatMessage
+      message={{
+        id: generateId(),
+        content: emptyChatMessage,
+        role: 'assistant',
+      }}
+      separator={separator}
+    />
   );
 }
