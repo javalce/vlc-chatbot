@@ -2,7 +2,7 @@ import { ChatMessage } from './ChatMessage';
 
 export function EmptyChat({ emptyChatMessage }: { emptyChatMessage: string }) {
   return (
-    <ChatMessage type='chatbot'>
+    <ChatMessage messageRole='assistant'>
       <p>{emptyChatMessage}</p>
     </ChatMessage>
   );
