@@ -1,12 +1,21 @@
-import { useTranslations } from 'next-intl';
+import { generateId } from 'ai';
 import { ChatMessage } from './ChatMessage';
 
-export function EmptyChat() {
-  const t = useTranslations('chat');
-
+export function EmptyChat({
+  emptyChatMessage,
+  separator,
+}: {
+  emptyChatMessage: string;
+  separator: boolean;
+}) {
   return (
-    <ChatMessage type='chatbot'>
-      <p>{t('empty')}</p>
-    </ChatMessage>
+    <ChatMessage
+      message={{
+        id: generateId(),
+        content: emptyChatMessage,
+        role: 'assistant',
+      }}
+      separator={separator}
+    />
   );
 }
