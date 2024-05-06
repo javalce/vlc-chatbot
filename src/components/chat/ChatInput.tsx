@@ -1,9 +1,9 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { useEnterSubmit } from '@/hooks/use-enter-submit';
 import { PaperPlaneIcon } from '@radix-ui/react-icons';
 import { type UseChatHelpers } from 'ai/react';
-import { useRef } from 'react';
 import Textarea from 'react-textarea-autosize';
 
 export function ChatInput({
@@ -12,17 +12,10 @@ export function ChatInput({
   handleInputChange,
   handleSubmit,
 }: { placeholder: string } & Pick<UseChatHelpers, 'input' | 'handleInputChange' | 'handleSubmit'>) {
-  const form = useRef<HTMLFormElement>(null);
-
-  const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) {
-      form.current?.requestSubmit();
-      e.preventDefault();
-    }
-  };
+  const { formRef, onKeyDown } = useEnterSubmit();
 
   return (
-    <form ref={form} onSubmit={handleSubmit}>
+    <form ref={formRef} onSubmit={handleSubmit}>
       <div className='relative flex max-h-60 w-full grow flex-col justify-center overflow-hidden bg-background pr-10 sm:rounded-md sm:border sm:pr-12'>
         <Textarea
           autoComplete='off'
