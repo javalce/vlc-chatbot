@@ -10,7 +10,10 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --write src",
     "format:check": "prettier --check src",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docker:build": "docker build -t vlc-chatbot .",
+    "docker:start": "docker run -d -p 3000:3000 vlc-chatbot",
+    "docker:stop": "docker stop $(docker ps -a -q --filter ancestor=vlc-chatbot --format={{.ID}})"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "2.0.6",
