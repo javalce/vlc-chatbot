@@ -3,22 +3,18 @@ version: '3'
 services:
   vlc-chatbot:
     container_name: vlc-chatbot
+    image: vlc-chatbot
     build:
       context: .
       dockerfile: Dockerfile.prod
-      args:
-        ENV_VARIABLE: ${ENV_VARIABLE}
-        NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+    env_file:
+      - .env.production.local
     restart: always
     ports:
       - 3000:3000
     networks:
       - vlc_chatbot
 
-  # Add more containers below (nginx, postgres, etc.)
-
-# Define a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
 networks:
   vlc_chatbot:
     name: vlc_chatbot

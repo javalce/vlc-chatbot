@@ -8,6 +8,6 @@ export default getRequestConfig(async ({ locale }) => {
   if (!LOCALES.includes(locale as Locale)) notFound();
 
   return {
-    messages: (await import(`../messages/${locale}.json`)) as AbstractIntlMessages,
+    messages: (await import(`./messages/${locale}.json`)) as AbstractIntlMessages,
   };
 });

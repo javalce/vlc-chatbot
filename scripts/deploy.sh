@@ -3,9 +3,7 @@
 set -euo pipefail
 
 SCRIPTS_DIR=$(dirname "$0")
-SRC_DIR=$(realpath "${SCRIPTS_DIR}/..")
-APP_NAME="vlc-chatbot"
-IMAGE_NAME="vlc-chatbot"
+SRC_DIR=$(realpath "$SCRIPTS_DIR/..")
 COMPOSE_FILE=
 DEV=
 
@@ -24,20 +22,14 @@ help() {
 
 }
 
-select_compose_file() {
+run_docker_compose_command() {
   if [ -n "$DEV" ]; then
     COMPOSE_FILE="$SRC_DIR/docker-compose.dev.yaml"
   else
     COMPOSE_FILE="$SRC_DIR/docker-compose.prod.yaml"
   fi
-}
 
-run_docker_compose_command() {
-  if type "docker compose" &>/dev/null; then
-    docker compose -f "$COMPOSE_FILE" "$@"
-  else
-    docker-compose -f "$COMPOSE_FILE" "$@"
-  fi
+  docker compose -f "$COMPOSE_FILE" "$@"
 }
 
 deploy() {
