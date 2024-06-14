@@ -11,14 +11,14 @@ help() {
   echo "Usage: deploy.sh [COMMAND]"
   echo
   echo "Options:"
-  echo "  -h, --help - Show this help message and exit"
-  echo "  --dev      - Use development configuration"
+  echo "  -h, --help  Show this help message and exit"
+  echo "  --dev       Use development configuration"
   echo
   echo "Commands:"
-  echo "  start   - Start the application"
-  echo "  stop    - Stop the application"
-  echo "  restart - Restart the application"
-  echo "  build   - Build the application"
+  echo "  start       Start the application"
+  echo "  stop        Stop the application"
+  echo "  restart     Restart the application"
+  echo "  build       Build the application"
 
 }
 
@@ -59,7 +59,7 @@ deploy() {
   esac
 }
 
-OPTIONS=$(getopt -o h -l help -n "$@" -- "$@")
+OPTIONS=$(getopt -a -o h -l help,dev -- "$@")
 
 eval set -- "$OPTIONS"
 
@@ -78,7 +78,7 @@ while true; do
     break
     ;;
   *)
-    echo "Internal error!"
+    printf "Unknown option %s\n" "$1"
     exit 1
     ;;
   esac
