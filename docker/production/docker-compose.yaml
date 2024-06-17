@@ -5,7 +5,7 @@ services:
     container_name: vlc-chatbot
     image: vlc-chatbot
     build:
-      context: .
+      context: ../../
       dockerfile: Dockerfile.prod
     restart: always
     ports:

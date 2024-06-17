@@ -1,5 +1,5 @@
-COMPOSE_FILE_DEV=docker-compose.dev.yaml
-COMPOSE_FILE_PROD=docker-compose.prod.yaml
+COMPOSE_FILE_DEV=docker/development/docker-compose.yaml
+COMPOSE_FILE_PROD=docker/production/docker-compose.yaml
 
 .DEFAULT_GOAL := help
 

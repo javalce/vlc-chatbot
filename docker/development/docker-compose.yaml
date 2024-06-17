@@ -5,7 +5,7 @@ services:
     container_name: vlc-chatbot-dev
     image: vlc-chatbot-dev
     build:
-      context: .
+      context: ../..
       dockerfile: Dockerfile.dev
     environment:
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
